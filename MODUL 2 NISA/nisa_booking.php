@@ -30,28 +30,28 @@
             </div>
             <!-- form  -->
             <div class="col-6">
+            <form action="nisa_myBooking.php" method="post">
                 <br>
                 <h5 class="fw-semibold">Rent your car now!</h5>
-                <form action="nisa_myBooking.php" method="GET">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Name</label>
-                    <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Nama Lengkap">
+                    <input name="name" class="form-control" id="exampleFormControlInput1" placeholder="Nama Lengkap">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Book Date</label>
-                    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="dd/mm/yyy">
+                    <input name="date" class="form-control" id="exampleFormControlInput1" placeholder="dd/mm/yyy">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Start time</label>
-                    <input type="time" class="form-control" id="exampleFormControlInput1" placeholder="--:--">
+                    <input name="time" class="form-control" id="exampleFormControlInput1" placeholder="--:--">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Duration</label>
-                    <input type="Duration" class="form-control" id="exampleFormControlInput1" placeholder="Days">
+                    <input name="Duration" class="form-control" id="exampleFormControlInput1" placeholder="Days">
                 </div>
                 <div class="mb-3">
                     <label for="enableSelect" class="form-label">Car type</label>
-                    <select id="mobil" class="form-select">
+                    <select name="mobil" class="form-select">
                         <option value="Rush">Rush</option>
                         <option value="Brio">BMW</option>
                         <option value="Fortuner">Fortuner</option>
@@ -59,37 +59,41 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Phone number</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1">
+                    <input name="text" class="form-control" id="exampleFormControlInput1">
                 </div>
 
                 <!-- checkbox  -->
                 <p> Add Service </p>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <input class="form-check-input" name="check" type="checkbox" value="Health" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
                         Health Service / Rp.50.000
                     </label>
+                    </input>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <input class="form-check-input" name="check" type="checkbox" value="Driver" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
                         Driver / Rp. 200.000
                     </label>
+                    </input>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <input class="form-check-input" name="check" type="checkbox" value="Fuel" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
                         Fuel Filled / Rp.300.000
                     </label>
+                    </input>
                 </div>
                 <br>
                 <div class="d-grid gap-2">
-                    <a class="btn btn-success" href="nisa_myBooking.php" role="button">Book</a>
+                    <button type="submit" name="submit" value="submit" class="btn btn-primary"> book </button>
                 </div>
             </div>
         </div>
     </form>
     </div>
+    
     <!-- footer  -->
     <nav class="navbar bg-light">
         <div class="container-fluid">
@@ -101,3 +105,4 @@
         </div>
     </nav>
   </body>
+</html>

@@ -20,47 +20,58 @@
         </div>
         </div>
         </div>
-    </nav>
-
-<body>
-<?php
-$name = $_POST['name'];
-$date = $_POST['date'];
-$time = $_POST['time'];
-$Duration = $_POST['Duration'];
-$mobil = $_POST['mobil'];
-$text = $_POST[text];
-?>
-<div class="container">
-    <h5 class="text-center">Thank You Nisa Aisyatunnabilah_1202200018 for reserving</h5>
-    <table class="table">
-        <thread>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Duration</th>
-                <th scope="col">Mobil</th>
-                <th scope="col">text</th>
-            </tr>
-        </thread>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td><?php echo $name ?></td>
-                <td><?php echo $date ?></td>
-                <td><?php echo $time ?></td>
-                <td><?php echo $Duration ?></td>
-                <td><?php echo $mobil ?></td>
-                <td><?php echo $text ?></td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="mb-3">
-        <div class="d-flex justify-content-center">
-            <a href="nisa_booking.php" class="btn btn-outline-primary w-50"> Kembali</a>
-        </div>
-    </div>
-</div>
-</body>
+        </nav>
+        <body>
+            <?php
+            $name = isset($_POST['name']) ? $_POST['name'] : '';
+            $date = isset($_POST['date']) ? $_POST['date'] : '';
+            $time = isset($_POST['time']) ? $_POST['time'] : '';
+            $Duration = isset($_POST['Duration']) ? $_POST['Duration'] : '';
+            $mobil = isset($_POST['mobil']) ? $_POST['mobil'] : '';
+            $text = isset($_POST['text']) ? $_POST['text'] : '';
+            if(!empty($_POST['check'])){
+                // Loop to store and display values of individual checked checkbox.
+            foreach($_POST['check'] as $selected){
+            echo $selected."</br>";
+                }
+                }
+        
+            ?>
+            
+    
+            <div class="container">
+                <h5 class="text-center">Thank You Nisa Aisyatunnabilah_1202200018 for reserving</h5>
+                <table class="table">
+                    <thread>
+                        <tr>
+                            <th scope="col"><nisa_booking class="php"></nisa_booking></th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Car Type</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Service/s</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><?php echo $name ?></td>
+                            <td><?php echo $date ?></td>
+                            <td><?php echo $time ?></td>
+                            <td><?php echo $Duration ?></td>
+                            <td><?php echo $mobil ?></td>
+                            <td><?php echo $text ?></td>
+                            <td><?php echo $selected ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-center">
+                        <a href="nisa_booking.php" class="btn btn-outline-primary w-50"> Kembali</a>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>

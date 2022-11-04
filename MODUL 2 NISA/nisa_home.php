@@ -39,13 +39,12 @@
                     <p class="card-text">Mulai Rp250.000 per Hari</p>
                 </div >
                 <ul class="list-group list-group-flush" >
-                    <center><li class="list-group-item"> </li></center>
                     <center><li class="list-group-item">7 Kursi</li></center>
                     <center><li class="list-group-item">1.500CC</li></center>
                     <center><li class="list-group-item">Manual</li></center>
                 </ul>
                 <div class="card-body" style="margin-left: auto ; margin-right:auto">
-                    <a href="#" class="btn btn-primary">Book Now</a>
+                    <a href="nisa_booking.php" class="btn btn-primary">Book Now</a>
                 </div>
             </div>
         </div>
@@ -59,13 +58,12 @@
                     <p class="card-text">Mulai Rp600.000 per Hari</p>
                 </div >
                 <ul class="list-group list-group-flush" >
-                    <center><li class="list-group-item"> </li></center>
                     <center><li class="list-group-item">4 Kursi</li></center>
                     <center><li class="list-group-item">3000CC </li></center>
                     <center><li class="list-group-item">Manual</li></center>
                 </ul>
                 <div class="card-body" style="margin-left: auto ; margin-right:auto">
-                    <a href="#" class="btn btn-primary">Book Now</a>
+                    <a href="nisa_booking.php" class="btn btn-primary">Book Now</a>
                 </div>
             </div>
         </div>
@@ -81,13 +79,12 @@
                     <p class="card-text">Mulai Rp400.000 per Hari</p>
                 </div >
                 <ul class="list-group list-group-flush" >
-                    <center><li class="list-group-item"> </li></center>
                     <center><li class="list-group-item">7 Kursi</li></center>
                     <center><li class="list-group-item">3000CC Turbo</li></center>
                     <center><li class="list-group-item">Manual</li></center>
                 </ul>
                 <div class="card-body" style="margin-left: auto ; margin-right:auto">
-                    <a href="#" class="btn btn-primary">Book Now</a>
+                    <a href="nisa_booking.php" class="btn btn-primary">Book Now</a>
                 </div>
             </div>
         </div>
