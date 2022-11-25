@@ -1,18 +1,4 @@
-<?php
-require "../config/config.php";
 
-$query = "SELECT * FROM users";
-$result = mysqli_query($koneksi, $query);
-
-function onClick($result)
-{
-  if (mysqli_num_rows($result) > 0) {
-    header("Location: ../pages/ListCar-Nisa.php");
-  } else {
-    header("Location: ../pages/Add-Nisa.php");
-  }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,11 +21,7 @@ function onClick($result)
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav" style="margin-right: auto">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        <a class="nav-link" href="<?php if (mysqli_num_rows($result) > 0) {
-                                      echo "../pages/ListCar-Nisa.php";
-                                    } else {
-                                      echo "../pages/Add-Nisa.php";
-                                    } ?>">My Car</a>
+                        <a class="nav-link" href="Add-Nisa.php">My Car</a>
                     </div>
                 </div>
             </div>
@@ -57,16 +39,20 @@ function onClick($result)
         <div class="container text-center">
             <div class="row">
                 <div class="col">
-                    <h1 class="text-start">Selamat Datang Di </br> Showroom Nisa</h1>
+                    <h1 class="text-start">Selamat Datang Di Showroom Nisa</h1>
                     <p class="text-start text-muted fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum repudiandae harum eaque esse cum, tempore fugit porro quae magni atque!</p>
                     <!-- Button -->
-                    <a href="<?php if (mysqli_num_rows($result) > 0) {
-                                echo "../pages/LisCar-Nisa.php";
-                                } else {
-                                echo "../pages/ListCar-Nisa.php";
-                                } ?>" class="button btn-primary">My Car
-                    </a>
-                </br>
+                    <div class="text-start">
+                    <?php
+                    if ($jumlahData == 0) {
+                        echo '<a class="btn btn-primary " href="pages/Add-Nisa.php">MyCar</a>';
+                    } else {
+                        echo '<a class="btn btn-primary " href="pages/ListCar-Nisa.php">MyCar</a>';
+                    }
+                    
+                    ?>
+                </div>
+                <br>
         <!-- kiri -->
         <div class="container text-center">
             <div class="row">

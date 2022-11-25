@@ -1,18 +1,3 @@
-<?php
-require "../config/config.php";
-
-$query = "SELECT * FROM users";
-$result = mysqli_query($koneksi, $query);
-
-function onClick($result)
-{
-  if (mysqli_num_rows($result) > 0) {
-    header("Location: ../pages/ListCar-Nisa.php");
-  } else {
-    header("Location: ../pages/Add-Nisa.php");
-  }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,41 +28,87 @@ function onClick($result)
         </nav>
 
 <!-- form -->
-<section id='form'>
-    <div class="container">
-      <h1 class="tambahh1">Tambah Mobil</h1>
-      <p class="tambahp">Tambah Mobil Baru Anda Ke List Show Room</p>
-      <form action="../config/insert.php" method="POST" enctype="multipart/form-data">
-        <label for="nama">Nama Mobil</label>
-        <input type="text" id="nama" name="nama" placeholder="Masukkan Nama Mobil">
-        <label for="pemilik">Nama Pemilik</label>
-        <input type="text" id="pemilik" name="pemilik" placeholder="Masukkan Nama Pemilik">
-        <label for="merk">Merk</label>
-        <input type="text" id="merk" name="merk" placeholder="Masukkan Merk Mobil">
-        <label for="tanggalbeli">Tanggal Beli</label>
-        <input type="date" id="tanggalbeli" name="tanggalbeli">
-        <label for="desc">Deskripsi</label>
-        <textarea id="desc" name="desc" placeholder="Masukkan Deskripsi Mobil" style="height:200px; width: 1000px; border-radius: 8px;"></textarea>
-        <label for="inputGroupFile01">Foto</label>
-        <input type="file" class="form-control" id="inputGroupFile01" name="gambar" style="height: 40px;">
-        <label for="status">Status Pembayaran</label>
-        <span class="d-flex">
-          <input type="radio" name="status" id="lunas" value="Lunas" style="width: 15px; height: 15px; margin-right:10px;">
-          <label for="lunas" style="margin-top: 15px; margin-right:10px;">Lunas</label>
-          <input type="radio" name="status" id="belum" value="Belum Lunas" style="width: 15px; height: 15px; margin-right:10px;">
-          <label for="belum" style="margin-top: 15px;">Belum Lunas</label>
-        </span>
-        <br>
-        <div class="mb-3">
-            <a class="btn btn-primary col-1" type="submit" value="submit" href="ListCar-Nisa.php">Selesai</a>
-        </div>
-    </form>
-    </div>
-  </section>
-  <!-- Form End -->
 
-  <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-</body>
 
+<div class="container px-4 text-start">
+            <div class="row gx-5">
+                <div class="col">
+
+                    <!-- Heading -->
+                    <br>
+                    <div class="">
+                        <h1 class="text-start">Tambah Mobil</h1>
+                        <p class="text-start text-muted">Tambah Mobil baru anda ke list show room!</p>
+                    </div>
+
+                    
+                    <!-- Form -->
+                    <br>
+                    <form action="insert.php"  method="POST" enctype="multipart/form-data">
+
+                        <!-- Nama Mobil -->
+                        <div class="mb-3">
+                            <label for="nama_mobil" class="form-label">Nama Mobil</label>
+                            <input type="text" class="form-control" name="nama_mobil" id="nama_mobil"  placeholder="Civic Type-R">
+                        </div>
+
+                        <!-- Nama Pemilik -->
+                        <div class="mb-3">
+                            <label for="nama_mobil" class="form-label">Nama Pemilik</label>
+                            <input type="text" class="form-control" id="pemilik_mobil" name="pemilik_mobil"  placeholder="Nama - Nim">
+                        </div>
+
+                        <!-- Merk -->
+                        <div class="mb-3">
+                            <label for="merk_mobil" class="form-label">Merk</label>
+                            <input type="text" class="form-control" name ="merk_mobil" id="merk_mobil"  placeholder="Honda">
+                        </div>
+
+                        <!-- Tanggal Beli -->
+                        <div class="mb-3">
+                            <label for="tanggal_beli" class="form-label">Tanggal Beli</label>
+                            <input type="date" class="form-control" name ="tanggal_beli" id="tanggal_beli" placeholder="11/12/2022">
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <div class="mb-3">
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <textarea class="form-control border border-3" name="deskripsi" id="deskripsi" rows="3" placeholder="lorem21"></textarea>
+                        </div>
+
+                        <!-- Foto -->
+                        <div class="mb-3">
+                            <label for="foto_mobil" class="form-label">Foto</label>
+                            <input type="file" class="form-control" name="foto_mobil" id="foto_mobil" placeholder="Type-R.jpg">
+                        </div>
+                        
+                        <!-- Status Pembayaran -->
+                        <label for="status_pembayaran" class="form-label">Status Pembayaran</label>
+                        <div class="container text-start">
+                                <div class="col">
+                                    <!-- Radio 1 -->
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="status_pembayaran" id="status_pembayaran" value="Lunas">
+                                        <label class="form-check-label" for="lunas">Lunas</label>
+                                    </div>
+                                    <!-- Radio 2 -->
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="status_pembayaran" id="status_pembayaran" value="BelumLunas">
+                                        <label class="form-check-label" for="belumLunas">Belum Lunas</label>
+                                    </div>
+                                </div>
+                        <!-- Submit -->
+                      <br>
+                      <button type="submit" class="btn btn-primary" name="submit">Selesai</button>
+                      <br>
+                      <br>
+                        
+                    </form>
+                </div>    
+            </div>    
+        </div>    
+
+
+
+    </body>
 </html>
-

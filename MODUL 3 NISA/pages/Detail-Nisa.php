@@ -1,13 +1,3 @@
-<?php
-require '../config/config.php';
-
-$id = $_GET['id'];
-
-$sql = "SELECT * FROM users WHERE id_mobil = $id";
-
-$result = mysqli_query($koneksi, $sql);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +6,9 @@ $result = mysqli_query($koneksi, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        <?php include '../asset/style/style.css'; ?>
+    </style>
 </head>
 <body>
     <!-- nav -->
@@ -34,55 +27,117 @@ $result = mysqli_query($koneksi, $sql);
             </div>
         </nav>
     <!-- form -->
-    <div class="container">
-        <br>
-            <h2 class="fw-semibold"> Civic Type R</h2>
-            <h6 class="fw-lighter"> Detail Mobil Civic Type R</h6>
-        <br>
 
-    <!-- form -->
-    <section id="detail">
-    <div class="container">
-      <?php
-      while ($getDetail = mysqli_fetch_array($result)) {
-        echo "
-                <h1 class="tambahh1">Tambah Mobil</h1>
-                <p class="tambahp">Tambah Mobil Baru Anda Ke List Show Room</p>
-                <form action="../config/insert.php" method="POST" enctype="multipart/form-data">
-                <label for="nama">Nama Mobil</label>
-                <input type="text" id="nama" name="nama" placeholder="Masukkan Nama Mobil">
-                <label for="pemilik">Nama Pemilik</label>
-                <input type="text" id="pemilik" name="pemilik" placeholder="Masukkan Nama Pemilik">
-                <label for="merk">Merk</label>
-                <input type="text" id="merk" name="merk" placeholder="Masukkan Merk Mobil">
-                <label for="tanggalbeli">Tanggal Beli</label>
-                <input type="date" id="tanggalbeli" name="tanggalbeli">
-                <label for="desc">Deskripsi</label>
-                <textarea id="desc" name="desc" placeholder="Masukkan Deskripsi Mobil" style="height:200px; width: 1000px; border-radius: 8px;"></textarea>
-                <label for="inputGroupFile01">Foto</label>
-                <input type="file" class="form-control" id="inputGroupFile01" name="gambar" style="height: 40px;">
-                <label for="status">Status Pembayaran</label>
-                <span class="d-flex">
-                    <input type="radio" name="status" id="lunas" value="Lunas" style="width: 15px; height: 15px; margin-right:10px;">
-                    <label for="lunas" style="margin-top: 15px; margin-right:10px;">Lunas</label>
-                    <input type="radio" name="status" id="belum" value="Belum Lunas" style="width: 15px; height: 15px; margin-right:10px;">
-                    <label for="belum" style="margin-top: 15px;">Belum Lunas</label>
-                </span>
-                <br>
-                <div class="mb-3">
-                    <a class="btn btn-primary col-1" type="submit" href="ListCar-Nisa.php" role="button">Selesai</a>
-                </div>
-            </form>
-            </div>
-            </section
-        ";
-      }
-      ?>
-    </div>
-  </section>
-  <!-- Form End -->
 
-  <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-</body>
+    <div class="container px-4 text-start">
+            <div class="row gx-5">
+                <div class="col">
 
+                    <!-- Heading -->
+                    <div class="">
+                        <h1 class="text-start">Nama Mobil</h1>
+                        <p class="text-start text-muted">Detail Mobil</p>
+                        <br>
+                    </div>
+
+                    <?php
+
+                    include('../config/connector.php');
+
+
+                    // include('../config/connector.php');
+
+                    $id = $_GET['id_mobil'];
+                    $getData = mysqli_query($connect,"SELECT * FROM users WHERE id_mobil = $id");
+                    $jumlahData = mysqli_num_rows($getData);
+                    $detailMobil = mysqli_fetch_array($getData) or die("line 50 not working");
+                    $foto = $detailMobil['foto_mobil'];
+                    // echo $detailMobil['foto_mobil'];
+
+                    ?>
+                        <!-- Form -->
+                        <div class="container text-start">
+                            <div class="row">
+                                <div class="col align-self-start">
+                                    <br>
+                                    <img src="../asset/images/<?php echo $detailMobil['foto_mobil'];?>" class ="rounded" alt="mobil" width="Automatic" height="310" >
+                                </div>
+                                
+                                <!-- Forms -->
+                                <div class="col align-self-center">
+                                    <form>
+                                        <fieldset disabled="">
+
+                                            <!-- Nama Mobil -->
+                                            <div class="mb-3">
+                                                <label for="disabledTextInput" class="form-label ">Nama Mobil</label>
+                                                <input type="text" class="form-control" id="disabledTextInput" aria-describedby="emailHelp" value="<?= $detailMobil['nama_mobil'];?>">
+                                            </div>
+                                            
+                                            <!-- Nama Mobil -->
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Nama Pemilik</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?= $detailMobil['pemilik_mobil'];?>">
+                                            </div>
+                                            
+                                            <!-- Merk -->
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Merk</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?= $detailMobil['merk_mobil'];?>">
+                                            </div>
+                                            
+                                            <!-- Tanggal Beli -->
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Tanggal Beli</label>
+                                                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?= $detailMobil['tanggal_beli'];?>">
+                                            </div>
+                                            
+                                            <!-- Deskripsi -->
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Deskripsi</label>
+                                                <textarea class="form-control border border-3" id="exampleFormControlTextarea1" rows="3" ><?= $detailMobil['deskripsi'];?></textarea>
+                                            </div>
+                                            
+                                            <!-- Foto -->
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Foto</label>
+                                                <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?= $detailMobil['foto_mobil'];?>">
+                                            </div>
+                                            
+                                            <!-- Status Pembayaran -->
+                                            
+                                            <label for="exampleInputEmail1" class="form-label">Status Pembayaran</label>
+                                            <div class="container text-start">
+                                                <div class="col">
+                                                    <!-- Radio 1 -->
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="<?= $detailMobil['status_pembayaran'];?>">
+                                                        <label class="form-check-label" for="inlineRadio1">Lunas</label>
+                                                    </div>
+                                                    <!-- Radio 2 -->
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="<?= $detailMobil['status_pembayaran'];?>">
+                                                        <label class="form-check-label" for="inlineRadio2">Belum Lunas</label>
+                                                    </div>
+                                                </div>
+                                        </fieldset>
+                                            <!-- Submit -->
+                                            <br>
+                                            
+                                            
+                                            <a href="Edit-Nisa.php" class="btn btn-primary">Edit</a>
+                                        </form>
+                    
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+
+
+
+
+    </body>
 </html>
