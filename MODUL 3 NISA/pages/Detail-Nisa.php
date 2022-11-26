@@ -35,9 +35,9 @@
 
                     <!-- Heading -->
                     <div class="">
-                        <h1 class="text-start">Nama Mobil</h1>
-                        <p class="text-start text-muted">Detail Mobil</p>
                         <br>
+                        <h1 class="text-start">Detail Mobil</h1>
+                        <p class="text-start text-muted">Penjelasan tentang Mobil</p>
                     </div>
 
                     <?php
@@ -126,6 +126,7 @@
                                             
                                             
                                             <a href="Edit-Nisa.php" class="btn btn-primary">Edit</a>
+                                            <br>
                                         </form>
                     
                                     

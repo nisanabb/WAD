@@ -1,4 +1,9 @@
+<?php
+    include_once('../config/connector.php');
+    $getData = mysqli_query($connect,"SELECT id_mobil FROM `users`");
+    $jumlahData = mysqli_num_rows($getData);
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +26,14 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav" style="margin-right: auto">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        <a class="nav-link" href="Add-Nisa.php">My Car</a>
+                        <?php
+                        if ($jumlahData == 0) {
+                            echo '<a class="nav-link active" href="Add-Nisa.php">My Car</a>';
+                        } else {
+                            echo '<a class="nav-link active" href="ListCar-Nisa.php">My Car</a>';
+                        }
+                        
+                        ?>
                     </div>
                 </div>
             </div>
@@ -45,9 +57,9 @@
                     <div class="text-start">
                     <?php
                     if ($jumlahData == 0) {
-                        echo '<a class="btn btn-primary " href="pages/Add-Nisa.php">MyCar</a>';
+                        echo '<a class="btn btn-primary " href="Add-Nisa.php">MyCar</a>';
                     } else {
-                        echo '<a class="btn btn-primary " href="pages/ListCar-Nisa.php">MyCar</a>';
+                        echo '<a class="btn btn-primary " href="ListCar-Nisa.php">MyCar</a>';
                     }
                     
                     ?>
