@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    if (!empty($_SESSION) && $_SESSION['another']) {
+        $dec = json_decode($_SESSION['another'], true);
+    } else {
+          echo "<body>
+                <script>
+                    alert('kamu belum login!')
+                    window.location.replace('../login.html')
+                </script>
+            </body>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +36,16 @@
                         <a class="nav-link" href="Home-Nisa.php">Home</a>
                         <a class="nav-link active" aria-current="page" href="Add-Nisa.php">My Car</a>
                     </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" style="background-color: white; color:blue; border-radius: 5px; text-decoration: none; width: 110px; height: 35px; display:flex; justify-content:center; align-items:center; font-weight:500;"id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php echo $dec['username']; ?>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="Profile-Nisa.php">Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../config/logout.php">Logout</a></li>
+                        </ul>
+                    </li>
                 </div>
             </div>
         </nav>
