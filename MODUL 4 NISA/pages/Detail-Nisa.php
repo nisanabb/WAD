@@ -6,7 +6,7 @@
           echo "<body>
                 <script>
                     alert('kamu belum login!')
-                    window.location.replace('../login.html')
+                    window.location.replace('../pages/Login-Nisa.php')
                 </script>
             </body>";
     }
