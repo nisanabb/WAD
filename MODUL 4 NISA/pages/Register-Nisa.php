@@ -14,6 +14,27 @@
 </head>
 
 <body id="login_register">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav" style="margin-right: auto">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <?php
+                        if ($jumlahData == 0) {
+                            echo '<a class="nav-link active" href="Add-Nisa.php">My Car</a>';
+                        } else {
+                            echo '<a class="nav-link active" href="ListCar-Nisa.php">My Car</a>';
+                        }
+                        
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </nav>
     <section>
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">

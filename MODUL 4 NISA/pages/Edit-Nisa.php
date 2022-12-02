@@ -72,8 +72,8 @@
                     <!-- Heading -->
                     <div class="">
                         <br>
-                        <h1 class="text-start">Nama Mobil</h1>
-                        <p class="text-start text-muted">Detail Mobil</p>
+                        <h1 class="text-start">Edit</h1>
+                        <p class="text-start text-muted">Edit Detail Mobil</p>
                     </div>
 
                     
