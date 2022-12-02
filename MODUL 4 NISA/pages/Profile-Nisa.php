@@ -28,7 +28,7 @@ session_start();
     <div class="container">
       <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
         <div class="navbar-nav gap-3">
-          <a class="nav-link" style="color: white;" href="ListCar-Nisa.php">MyCar</a>
+          <a class="nav-link" style="color: white;" href="ListCar-Nisa.php">My Car</a>
         </div>
         <a href="Add-Nisa.php" style="background-color: white; color:blue; border-radius: 5px; text-decoration: none; width: 110px; height: 35px; display:flex; justify-content:center; align-items:center; font-weight:500;">Add Car</a>
       </div>
@@ -38,7 +38,7 @@ session_start();
           <?php echo $dec['username']; ?>
         </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="./Profile-Nisa.php">Profile</a></li>
+            <li><a class="dropdown-item" href="Profile-Nisa.php">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="../config/logout.php">Logout</a></li>
           </ul>

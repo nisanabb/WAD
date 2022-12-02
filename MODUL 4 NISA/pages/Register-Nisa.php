@@ -10,7 +10,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        <?php include '../asset/style/style.css'; ?>
+    </style>
 </head>
 
 <body id="login_register">
@@ -22,7 +24,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav" style="margin-right: auto">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="Home-Nisa.php">Home</a>
                         <?php
                         if ($jumlahData == 0) {
                             echo '<a class="nav-link active" href="Add-Nisa.php">My Car</a>';
