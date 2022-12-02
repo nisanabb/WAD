@@ -1,4 +1,5 @@
 <?php 
+include('../config/connector.php');
 
 $data = array();
 
@@ -25,7 +26,7 @@ if (isset($_POST['submit'])) {
             echo "<body>
                 <script>
                     alert('Password tidak sama');
-                    // window.location.replace('../register.html');
+                    // window.location.replace('../register.php');
                 </script>
             </body>";
         } else {

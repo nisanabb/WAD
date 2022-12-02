@@ -1,4 +1,8 @@
+<?php
+    include_once('../config/connector.php');
+    $getData = mysqli_query($connect,"SELECT * FROM `register`");
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 

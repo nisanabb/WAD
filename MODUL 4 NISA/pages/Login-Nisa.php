@@ -1,3 +1,7 @@
+<?php
+    include_once('../config/connector.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,6 +41,7 @@
                 </div>
             </div>
         </nav>
+        
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -49,8 +54,7 @@
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
-
-                                    <form method="post" action="../config/login.php" enctype="multipart/form-data">
+                                    <form action="../config/login.php" method="POST" enctype="multipart/form-data">
 
                                         <div class="d-flex align-items-center mb-3 pb-1">
                                             <i class="fas fa-cubes fa-2x me-3"></i>

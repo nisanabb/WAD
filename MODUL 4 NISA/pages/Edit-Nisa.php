@@ -1,16 +1,3 @@
-<?php
-    session_start();
-    if (!empty($_SESSION) && $_SESSION['another']) {
-        $dec = json_decode($_SESSION['another'], true);
-    } else {
-          echo "<body>
-                <script>
-                    alert('kamu belum login!')
-                    window.location.replace('../login.html')
-                </script>
-            </body>";
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

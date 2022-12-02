@@ -1,4 +1,5 @@
 <?php
+include('../config/connector.php');
 session_start();
 
 if (empty($_POST['username']) && empty($_POST['email']) 
@@ -8,7 +9,7 @@ if (empty($_POST['username']) && empty($_POST['email'])
         echo "<body>
             <script>
                 alert('belum ada data ! ')
-                window.location.replace('../register.html')
+                window.location.replace('../register.php')
             </script>
         </body>";
 }
@@ -19,6 +20,9 @@ $fname = $_POST['first_name'];
 $lname = $_POST['last_name'];
 $pwd = $_POST['pwd'];
 $pwd2 = $_POST['pwd2'];
+
+$query = mysqli_query($connect, "INSERT INTO register(`username`, `email`, `fname`, `lname`, `pwd`, `pwd2`) 
+VALUES ('[$username]','[$email]','[$fname]','[$lname]','[$pwd]','[$pwd2]')");
 
 function set_cookie() {
     global $username, $email, $fname, $lname, $pwd;

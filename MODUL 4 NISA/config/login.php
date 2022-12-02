@@ -1,5 +1,5 @@
 <?php
-    // include "./headers.php";
+include('../config/connector.php');
     session_start();
     if (empty($_COOKIE['user'])) {
         echo "<body>
@@ -12,6 +12,7 @@
     $dec = json_decode($_COOKIE['user'], true);
     $get_uname = $_POST['username'];
     $get_pwd = $_POST['pwd'];
+
 
     // print_r($dec);
 

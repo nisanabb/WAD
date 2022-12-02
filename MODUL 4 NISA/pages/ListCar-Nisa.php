@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    if (!empty($_SESSION) && $_SESSION['another']) {
+        $dec = json_decode($_SESSION['another'], true);
+    } else {
+          echo "<body>
+                <script>
+                    alert('kamu belum login!')
+                    window.location.replace('../pages/Login-Nisa.php')
+                </script>
+            </body>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +24,6 @@
     </style>
 </head>
 <body>
-    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
@@ -21,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav" style="margin-right: auto">
                         <a class="nav-link" href="Home-Nisa.php">Home</a>
-                        <a class="nav-link active" aria-current="page" href="#">My Car</a>
+                        <a class="nav-link active" aria-current="page" href="Add-Nisa.php">My Car</a>
                     </div>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" style="background-color: white; color:blue; border-radius: 5px; text-decoration: none; width: 110px; height: 35px; display:flex; justify-content:center; align-items:center; font-weight:500;"id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,8 +48,6 @@
                 </div>
             </div>
         </nav>
-
-
         <!-- layout -->
         <div class="container px-4 text-start">
             <div class="row gx-5">
