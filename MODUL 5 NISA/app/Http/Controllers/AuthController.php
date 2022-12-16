@@ -63,7 +63,7 @@ class AuthController extends Controller
 
         // login user with email and password
         $credentials = request(['email', 'password']);
-        if (!auth()->attempt($credentials))
+        if (!auth()->attempt($credential))
             return redirect()->route('login')->with('error', 'Login Failed');
 
         return redirect('/')->with('success', 'Login Success');
