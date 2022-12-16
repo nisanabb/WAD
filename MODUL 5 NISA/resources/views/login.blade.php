@@ -1,4 +1,5 @@
 @include('component.layout')
+
     <section id="login">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -14,7 +15,8 @@
                 <div class="col-md-6">
                     <div class="form-login m-auto ps-5">
                         <h2 class="fw-bold mb-4">Login</h2>
-                        <form action="{{ route('login.post') }}" method="POST">
+                        <form action="{{ route('login.post') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                             <!-- Email input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="email">Email address</label>
