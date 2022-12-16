@@ -1,82 +1,55 @@
-
-<!doctype html>
-<html lang="en">
-    
-  <head>
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  </head>
-    <body>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
-        <div class="container text-start justify-content-center">
-          <div class="row">
-            @if(session('success'))
-        <p class="alert alert-success">{{ session('success') }}</p>
-        @endif
-        @if($errors->any())
-        @foreach($errors->all() as $err)
-        <p class="alert alert-danger">{{ $err }}</p>
-        @endforeach
-        @endif
-            <div class="col">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <img src="/images/typer.jpg" class="rounded" alt="" width="Automatic" height="420" >
-            </div>
-            <!-- Kanan -->
-            <div class="col">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-
-            <div class="">
-                <h2 class="text-start">Login</h2>
-
-            </div>
-
-            <form action={{ route('login.action') }}  method="POST">
-              @csrf
-                <!-- Nama Mobil -->
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email" id="email"  placeholder="example@mail.com">
+@include('component.layout')
+    <section id="login">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6 min-vh-100 left">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <img src="images/toyota-supra.jpg" class="rounded mx-auto d-block" style="object-fit:fill; width:100%; height:100%;" alt="foto">
                 </div>
-
-                <!-- Paswprd -->
-                <div class="mb-3">
-                    <label for="tanggal_beli" class="form-label">Password</label>
-                    <input type="password" class="form-control" name ="password" id="password" placeholder="Use Strong Password">
+                <div class="col-md-6">
+                    <div class="form-login m-auto ps-5">
+                        <h2 class="fw-bold mb-4">Login</h2>
+                        <form action="{{ route('login.post') }}" method="POST">
+                            @csrf
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="email">Email address</label>
+                                <input type="email" id="email" class="form-control form-control-lg" name="email"
+                                    placeholder="masukan email"
+                                    value="<?= isset($_COOKIE['email']) ? $_COOKIE['email'] : '' ?>" />
+                            </div>
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label
+                                " for="password">Password</label>
+                                <input type="password" id="password" class="form-control form-control-lg" name="password"
+                                    placeholder="masukan password"
+                                    value="<?= isset($_COOKIE['password']) ? $_COOKIE['password'] : '' ?>" />
+                            </div>
+                            <!-- Checkbox -->
+                            <div class="form-check mb-0">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="check"
+                                    name="check" />
+                                <label class="form-check-label" for="check">
+                                    Remember me
+                                </label>
+                            </div>
+                            <a href="#!" class="text-body">Forgot password?</a>
+                    </div>
+                    <div class="text-center text-lg-start mt-4 pt-2" style="margin-left: 50px;">
+                        <button type="submit" class="btn btn-success btn-lg" name="login"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have Account? <a href="{{'register'}}"
+                                class="link-danger">Register</a></p>
+                    </div>
+                    </form>
                 </div>
-
-                <!--Remember Me-->
-                <div>
-                    <input class="form-check-input" type="checkbox" name="remember" id="remember">
-                    <label for="remember">Remember me</label>
-                </div>
-
-                <!-- Submit -->
-                <br>
-                  <button type="submit" class="btn btn-primary" role="button" value="submit" name="submit">Masuk</button>
-                </form>
-                <div>
-                  <br>
-                  <p>Belum Punya Akun ?</p>
-                  <a href="{{ route('register') }}"> Daftar</a>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-
-    </body>
-</html>
+        </div>
+    </section>

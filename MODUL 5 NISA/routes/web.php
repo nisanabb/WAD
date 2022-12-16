@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ShowroomController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,19 +14,47 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+// ==================== User Route ====================
+Route::get('/register', [AuthController::class, 'index'])->name('register.get');
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('login', [AuthController::class, 'login'])->name('login.get');
+Route::post('login', [AuthController::class, 'loginUser'])->name('login.post');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout.get');
+route::post('/logout', [AuthController::class, 'logoutUser']);
+route::put('/profile/{id}', [AuthController::class, 'edit'])->name('updateProfile.put');
+Route::get('/profile/{id}', [AuthController::class, 'userDetail'])->name('userDetail');
+
+
+
+// ==================== Showroom Route ====================
+Route::post('addCar', [ShowroomController::class, 'addCar'])->name('addCar.post');
+Route::get('/list', [ShowroomController::class, 'showCar'])->name('showCar');
+Route::get('/detail/{id}', [ShowroomController::class, 'carDetail'])->name('carDetail');
+Route::put('/detail/{id}', [ShowroomController::class, 'editCar'])->name('updateCar.put');
+Route::delete('list/{id}', [ShowroomController::class, 'deleteCar']);
+
+
+// ==================== View Route ====================
 Route::get('/', function () {
-    return view('Home');
+    return view('home');
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
 
-Route::get('register', [UserController::class, 'register'])->name('register');
-Route::post('register', [UserController::class, 'register_action'])->name('register.action');
-Route::get('login', [UserController::class, 'login'])->name('login');
-Route::post('login', [UserController::class, 'login_action'])->name('login.action');
-// Route::get('profile', [UserController::class, 'password'])->name('password');
-// Route::post('password', [UserController::class, 'password_action'])->name('password.action');
-Route::get('logout', [UserController::class, 'logout'])->name('logout');
-Route::resource('product', ProductController::class);
+Route::get('/register', function () {
+    return view('register');
+});
 
+Route::get('/add', function () {
+    return view('add');
+});
 
+Route::get('/update', function () {
+    return view('update');
+});

@@ -14,17 +14,20 @@ return new class extends Migration
     public function up()
     {
         Schema::create('showrooms', function (Blueprint $table) {
-                $table->increments('id');
-                $table->unsignedBigInteger('user_id');
-                $table->foreign('user_id')->references('id')->on('users');
-                $table->string('name', 255);
-                $table->string('owner', 255);
-                $table->string('brand', 255);
-                $table->dateTime('purchase_date');
-                $table->text('description');
-                $table->string('image', 255);
-                $table->enum('status', ['Lunas', 'Belum Lunas']);
-                $table->timestamps();
+            $table->bigInteger('id')->unsigned()->autoIncrement();
+            $table->bigInteger('id_user')->unsigned();
+            $table->string('name');
+            $table->string('brand');
+            $table->datetime('purchase_date');
+            $table->text('description');
+            $table->string('image');
+            $table->enum('status', ['Lunas', 'Belum Lunas']);
+            $table->timestamps();
+
+            $table->foreign('id_user')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -35,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('showrooms');
     }
 };
